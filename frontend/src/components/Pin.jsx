@@ -5,7 +5,7 @@ import { MdDownloadForOffline } from 'react-icons/md'
 import { AiTwoToneDelete } from 'react-icons/ai'
 import { BsFillArrowUpRughtCircleFill} from 'react-icons/bs'
 
-import { urlFor } from '../client'
+import { client, urlFor } from '../client'
 import { useState } from 'react'
 import { fetchUser } from '../utils/fetchUser'
 
@@ -17,6 +17,28 @@ const navigate = useNavigate();
 const user = fetchUser()
 
 const alreadySaved = !!(save?.filter((item) => item.postedBy._id === user.googleId))?.length
+
+const savePin = (id) =>{
+    if(!alreadySaved){
+        setSavingPost(true);
+
+        client
+            .patch(id)
+            .setIfMissing({ save: []})
+            .insert('after', 'save[-1]'[{
+                _key: uuidv4(),
+                userId: user.googleId,
+                postedBy: {
+                    _type: 'postedBy',
+                    _ref: user.googleId
+                }
+            }])
+            .commit().then(() => {
+                window.location.reload();
+                setSavingPost(false)
+            })
+    }
+}
 
   return (
     <div className='m-2'>
@@ -45,11 +67,16 @@ const alreadySaved = !!(save?.filter((item) => item.postedBy._id === user.google
                     </div>
                     { alreadySaved ? (
                         <button type='button' className='bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-lg outline-none'>
-                            Saved
+                            {save?.length} Saved
                         </button>
                     ):(
-                        <button type='button' className='bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-lg outline-none'>
-                            Save
+                        <button
+                            onClick ={(e) => {
+                                e.stopPropagation();
+                                savePin(_id)
+                            }}
+                            type='button' className='bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-lg outline-none'>
+                             Save
                         </button>
                     )}
                 </div>
