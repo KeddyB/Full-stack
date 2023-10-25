@@ -48,7 +48,7 @@ const alreadySaved = !!(save?.filter((item) => item.postedBy._id === user.google
                             Saved
                         </button>
                     ):(
-                        <button>
+                        <button type='button' className='bg-red-500 opcaity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none'>
                             Save
                         </button>
                     )}
