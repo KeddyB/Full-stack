@@ -8,6 +8,7 @@ import { BsFillArrowUpRughtCircleFill} from 'react-icons/bs'
 import { client, urlFor } from '../client'
 import { useState } from 'react'
 import { fetchUser } from '../utils/fetchUser'
+import MasonryLayout from './MasonryLayout'
 
 const Pin = ({ pin: { postedBy, image, _id, destination, save }  }) => {
 
@@ -67,7 +68,10 @@ const savePin = (id) => {
                         </button>
                     ):(
                         <button
-                            
+                            onClick={(e) =>{
+                                e.stopPropagation();
+                                savePin(_id)
+                            }}
                             type='button' 
                             className='bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-lg outline-none'
                         >
