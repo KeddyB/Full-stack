@@ -8,7 +8,6 @@ import { BsFillArrowUpRughtCircleFill} from 'react-icons/bs'
 import { client, urlFor } from '../client'
 import { useState } from 'react'
 import { fetchUser } from '../utils/fetchUser'
-import MasonryLayout from './MasonryLayout'
 
 const Pin = ({ pin: { postedBy, image, _id, destination, save }  }) => {
 

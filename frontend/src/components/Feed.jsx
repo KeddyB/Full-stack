@@ -24,7 +24,6 @@ const Feed = () => {
       })
     }else{
       setLoading(true)
-
       client.fetch(feedQuery).then((data) =>{
         setPins(data)
         setLoading(false)
@@ -35,7 +34,7 @@ const Feed = () => {
   if(loading) return <Spinner message="We are adding new ideas to your feed!" />
   return (
     <div>
-      {pins && (<MasonryLayout pins={pins}/>)}
+      {pins && <MasonryLayout pins={pins}/>}
     </div>
   )
 }
