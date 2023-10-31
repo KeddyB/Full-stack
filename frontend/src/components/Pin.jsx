@@ -110,7 +110,7 @@ const deletePin = (id) => {
             </div>
         )}
         </div>
-        <Link to={`user-profile/${user?._id}`}
+        <Link to={`user-profile/${postedBy?._id}`}
             className='flex gap-2 mt-2 items-center'
         >
             <img 
