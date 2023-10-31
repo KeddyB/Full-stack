@@ -12,7 +12,6 @@ import { fetchUser } from '../utils/fetchUser'
 const Pin = ({ pin: { postedBy, image, _id, destination, save }  }) => {
 
 const [postHovered, setPostHovered] =  useState(false)
-const [setSavingPost] =  useState(false)
 const navigate = useNavigate();
 const user = fetchUser()
 
@@ -32,9 +31,9 @@ const savePin = (id) => {
         })
     }
 }
-const deletePin = (_id) => {
+const deletePin = (id) => {
     client
-        .delete(_id)
+        .delete(id)
         .then(() => {
             window.location.reload();
         })
