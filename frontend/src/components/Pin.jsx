@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
 import { MdDownloadForOffline } from 'react-icons/md'
 import { AiTwoToneDelete } from 'react-icons/ai'
-import { BsFillArrowUpRughtCircleFill} from 'react-icons/bs'
+import { BsFillArrowUpRightCircleFill} from 'react-icons/bs'
 
 import { client, urlFor } from '../client'
 import { useState } from 'react'
@@ -31,6 +31,9 @@ const savePin = (id) => {
             window.location.reload();
         })
     }
+}
+const deletePin = (id) => {
+    
 }
 
   return (
@@ -75,7 +78,31 @@ const savePin = (id) => {
                         </button>
                     )}
                 </div>
-                
+                <div className="flex justify-between items-center gap-2 w-full">
+                    {destination && (
+                        <a
+                            href={destination}
+                            rel='noreferrer'
+                            target= '_blank'
+                            className='bg-white flex items-center gap-2 text-black font-bold p-2 pl-4 pr-4 rounded-full opacity-70 hover:opacity-100 hover:shadow-md'    
+                        >
+                            <BsFillArrowUpRightCircleFill />
+                            {destination.length > 20 ? destination.slice(8, 20) : destination.slice(8)}
+                        </a>
+                    )}
+                    {postedBy?._id === user.googleId && (
+                        <button
+                            type='button'
+                            onClick={(e) =>{
+                                e.stopPropagation();
+                                deletePin(_id)
+                            }}
+                            className='bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-lg outline-none'
+                        >
+
+                        </button>
+                    )}
+                </div>
             </div>
         )}
         </div>
