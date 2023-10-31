@@ -1,11 +1,11 @@
 import React from 'react'
 
-const CreatrPin = () => {
+const CreatePin = () => {
   return (
     <div>
-      CreatrPin
+      CreatePin
     </div>
   )
 }
 
-export default CreatrPin
+export default CreatePin

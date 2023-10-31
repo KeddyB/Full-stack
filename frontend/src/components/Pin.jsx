@@ -12,7 +12,7 @@ import { fetchUser } from '../utils/fetchUser'
 const Pin = ({ pin: { postedBy, image, _id, destination, save }  }) => {
 
 const [postHovered, setPostHovered] =  useState(false)
-const [savingPost, setSavingPost] =  useState(false)
+const [setSavingPost] =  useState(false)
 const navigate = useNavigate();
 const user = fetchUser()
 
@@ -20,8 +20,6 @@ const alreadySaved = !!(save?.filter((item) => item.postedBy?._id === user.googl
 
 const savePin = (id) => {
     if(!alreadySaved){
-        setSavingPost(true)
-
         client.patch(id).setIfMissing({ save: [] }).insert('after', 'save[-1]', [{
             _key: uuidv4(),
             userId: user.googleId,
@@ -31,7 +29,6 @@ const savePin = (id) => {
             }
         }]).commit().then(() => {
             window.location.reload();
-            setSavingPost(false)
         })
     }
 }
@@ -61,7 +58,7 @@ const savePin = (id) => {
                             <MdDownloadForOffline />
                         </a>
                     </div>
-                    { alreadySaved ? (
+                    { alreadySaved?.length !== 0 ? (
                         <button type='button' className='bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-lg outline-none'>
                             {save?.length} Saved
                         </button>
