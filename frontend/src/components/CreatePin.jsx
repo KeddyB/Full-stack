@@ -27,5 +27,4 @@ const CreatePin = ({ user }) => {
     </div>
   )
 }
-
 export default CreatePin
