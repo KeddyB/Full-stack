@@ -12,7 +12,7 @@ const CreatePin = ({ user }) => {
   const [destination, setDestination] = useState('');
   const [about, setAbout] = useState('');
   const [loading, setLoading] = useState(false);
-  const [fields, setFields] = useState(null);
+  const [fields, setFields] = useState(false);
   const [categories, setCategories] = useState(null);
   const [imageAsset, setImageAssets] = useState(null);
   const [wrongImageType, setWrongImageType] = useState(false);
@@ -20,8 +20,10 @@ const CreatePin = ({ user }) => {
   const navigate = useNavigate();
 
   return (
-    <div>
-      
+    <div className='flex flex-col justify-center items-center mt-5 lg:h-4/5'>
+      {fields && (
+        <p className="text-red-500 mb-5 text-xl transition-all duration-500 ease-in">Please fill in all the fields</p>
+      )}
     </div>
   )
 }

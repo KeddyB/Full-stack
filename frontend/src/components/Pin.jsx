@@ -32,9 +32,9 @@ const savePin = (id) => {
         })
     }
 }
-const deletePin = (id) => {
+const deletePin = (_id) => {
     client
-        .delete(id)
+        .delete(_id)
         .then(() => {
             window.location.reload();
         })
