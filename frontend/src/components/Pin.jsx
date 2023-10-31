@@ -20,20 +20,20 @@ const alreadySaved = !!(save?.filter((item) => item.postedBy?._id === user.googl
 const savePin = (id) => {
     if(!alreadySaved){
         client
-        .patch(id)
-        .setIfMissing({ save: [] })
-        .insert('after', 'save[-1]', [{
-            _key: uuidv4(),
-            userId: user.googleId,
-            postedBy: {
-                _type: 'postedBy',
-                _ref: user.googleId
-            }
-        }])
-        .commit()
-        .then(() => {
-            window.location.reload();
-        })
+            .patch(id)
+            .setIfMissing({ save: [] })
+            .insert('after', 'save[-1]', [{
+                _key: uuidv4(),
+                userId: user.googleId,
+                postedBy: {
+                    _type: 'postedBy',
+                    _ref: user.googleId
+                }
+            }])
+            .commit()
+            .then(() => {
+                window.location.reload();
+            })
     }
 }
 const deletePin = (id) => {
