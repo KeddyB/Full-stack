@@ -103,6 +103,12 @@ const CreatePin = ({ user }) => {
             value={about}
             placeholder='What is your Pin about?'
           />
+          <input 
+            type="text" 
+            className='outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2' 
+            value={destination}
+            placeholder='Add a destination link'
+          />
         </div>
       </div>
     </div>
