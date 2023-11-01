@@ -32,7 +32,7 @@ const savePin = (id) => {
             }])
             .commit()
             .then(() => {
-                window.location.reload();
+                //window.location.reload();
             })
     }
 }
@@ -73,11 +73,12 @@ const deletePin = (id) => {
                         <button type='button' className='bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-lg outline-none'>
                             {save?.length} Saved
                         </button>
-                    ):(
+                    ) : (
                         <button
-                            onClick={(e) =>{
+                            onClick = {(e) =>{
                                 e.stopPropagation();
                                 savePin(_id)
+                                console.log(e)
                             }}
                             type='button' 
                             className='bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-lg outline-none'
