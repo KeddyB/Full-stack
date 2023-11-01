@@ -106,7 +106,7 @@ const Pin = ({ pin }) => {
                 >
                   {' '}
                   <BsFillArrowUpRightCircleFill />
-                  {destination?.slice(8, 17)}...
+                  {destination?.slice(8, 20)}...
                 </a>
               ) : undefined}
               {
