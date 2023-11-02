@@ -101,6 +101,7 @@ const CreatePin = ({ user }) => {
             type="text" 
             className='outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2' 
             value={about}
+            onChange={(e) => setAbout(e.target.value)}
             placeholder='What is your Pin about?'
           />
           <input 
