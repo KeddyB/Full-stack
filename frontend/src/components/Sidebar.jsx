@@ -2,26 +2,12 @@ import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { RiHomeFill } from 'react-icons/ri'
 import { IoIosArrowForward} from 'react-icons/io'
+import { categories } from '../utils/data'
 
 import logo from '../assets/logo.png'
 
 const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-black transtion-all duration-200 ease-in-out capitalize'
 const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 border-black transtion-all duration-200 ease-in-out capitalize'
-
-const categories = [
-  {name: 'Animals'},
-  {name: 'Wallpapers'},
-  {name: 'Photography'},
-  {name: 'Coding'},
-  {name: 'Gaming'},
-  {name: 'Other'},
-  {name: 'Football'},
-  {name: 'Memes'},
-  {name: 'Politics'},
-  {name: 'Science'},
-  {name: 'Entertainment'},
-  {name: 'Other'},
-]
 
 const Sidebar = ({ user, closeToggle }) => {
   const handleCloseSidebar = () =>{
@@ -65,6 +51,7 @@ const Sidebar = ({ user, closeToggle }) => {
         >
           <img src={user.image} className='w-7 h-7 rounded-full' alt='user' />
           <p>{user.userName}</p>
+          <IoIosArrowForward />
         </Link>
       )}
     </div>

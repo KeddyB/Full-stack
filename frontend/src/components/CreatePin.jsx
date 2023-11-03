@@ -13,7 +13,7 @@ const CreatePin = ({ user }) => {
   const [about, setAbout] = useState('');
   const [loading, setLoading] = useState(false);
   const [fields, setFields] = useState(false);
-  const [categories, setCategories] = useState(null);
+  const [category, setCategory] = useState(null);
   const [imageAsset, setImageAssets] = useState(null);
   const [wrongImageType, setWrongImageType] = useState(false);
 
@@ -106,10 +106,26 @@ const CreatePin = ({ user }) => {
           />
           <input 
             type="text" 
-            className='outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2' 
+            className='outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2'
+            onChange={(e) => setDestination(e.target.value)}
             value={destination}
             placeholder='Add a destination link'
           />
+          <div className="flex flex-col">
+            <p className="mb-2 font-semi-bold text-lg sm:text-xl">Choose Pin Category</p>
+            <select name="" id=""
+              onChange={(e) => setCategory(e.target.value)}
+              className="outline-none w-full text-base border-b-2 border-gray-200 p-2 cursor-pointer"
+            >
+              <option value="other" className='bg-white'>Select category</option>
+              
+              {categories.map((category) => (
+                <option className='text-base border-0 outline-none capitalize bg-white text-black' value={category.name}>
+                  {category.name}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
       </div>
     </div>
