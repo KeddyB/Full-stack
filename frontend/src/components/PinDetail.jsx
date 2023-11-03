@@ -19,7 +19,7 @@ const PinDetail = ({ user }) => {
   
   return (
     <div>
-      <PinDetails></PinDetails>
+      PinDetails
     </div>
   )
 }
