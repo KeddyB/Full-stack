@@ -43,7 +43,7 @@ const CreatePin = ({ user }) => {
   const savePin = () => {
     if(title && about && destination &&imageAsset?._id && category){
       const doc = {
-        type: 'pin',
+        _type: 'pin',
         title,
         about,
         destination,
@@ -61,9 +61,7 @@ const CreatePin = ({ user }) => {
         },
         category,
       }
-      client
-        .create(doc)
-        .then(() => {
+      client.create(doc).then(() => {
           navigate('/')
         })
     }else{
