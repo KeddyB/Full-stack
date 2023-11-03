@@ -19,7 +19,7 @@ const PinDetail = ({ user }) => {
   
   return (
     <div>
-      this is a pin details
+      <PinDetails></PinDetails>
     </div>
   )
 }
