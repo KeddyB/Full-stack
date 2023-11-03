@@ -10,6 +10,11 @@ import { pinDetailMorePinQuery, pinDetailQuery } from '../utils/data'
 import Spinner from './Spinner'
 
 const PinDetail = ({ user }) => {
+  const { pinId } = useParams();
+  const [pins, setPins] = useState();
+  const [pinDetail, setPinDetail] = useState();
+  const [comment, setComment] = useState('');
+  const [addingComment, setAddingComment] = useState(false);
   return (
     <div>
       this is a pin details
