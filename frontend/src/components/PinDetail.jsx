@@ -16,7 +16,23 @@ const PinDetail = ({ user }) => {
   const [comment, setComment] = useState('');
   const [addingComment, setAddingComment] = useState(false);
 
-  
+  if(!pinDetail) return <Spinner message='Loading Pin deets...' />
+
+  const fetchPinDetails = () => {
+    let query = pinDetailQuery(pinId)
+    
+    if(query){
+      client.fetch(query)
+        .then((data) => {
+          setPinDetail(data[0]);
+
+          if(data[0]){
+            query = pinDetailMorePinQuery(data[0])
+          }
+        })
+    }
+  }
+
   return (
     <div>
       PinDetails
