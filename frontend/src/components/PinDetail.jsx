@@ -107,7 +107,10 @@ const PinDetail = ({ user }) => {
                 />
             </Link>
             <input type="text" 
-              className='flex-1 border-gray-100 bg-gray-100 outline-none border-2 p-2 rounded-full focus:border-gray-200 hover:border-gray-200 color-black duration-500 ease-in-out' placeholder='Add a comment' />
+              className='flex-1 border-gray-100 bg-gray-100 outline-none border-2 p-2 rounded-full 
+              focus:border-gray-200 hover:border-gray-200 color-black duration-500 ease-in-out' 
+              placeholder='Add a comment' 
+            />
           </div>
       </div>
     </div>
