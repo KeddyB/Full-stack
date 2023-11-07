@@ -46,9 +46,31 @@ const PinDetail = ({ user }) => {
       <div className="flex justify-center items-center md:items-start flex-initial">
         <img 
           src={pinDetail?.image && urlFor(pinDetail.image).url()} 
-          alt=""
+          alt="alt-user"
           className='rounded-t-3xl rounded-b-lg'
         />
+      </div>
+      <div className="w-full p-5 flex-1 xl:min-w-620">
+        <div className="flex items-center justify-between">
+          <div className="flex gap-5 items-center">
+              <a 
+                href={`${pinDetail.image?.asset?.url}?dl=`}
+                download
+                onClick={(e) => e.stopPropagation()}
+                className='bg-white h-9 w-9 rounded-full flex items-center justify-center text-dark text-xl opacity-75 hover:opacity:100 hover:shadow-md outline-none'
+              >
+                <MdDownloadForOffline />
+              </a>
+          </div>
+          <a href={pinDetail.destination} target='_blank' rel='norefferer'>
+            {pinDetail.destination}
+          </a>
+        </div>
+        <div>
+          <h1 className="text-4xl font-bold break-wprds mt-3">
+            {pinDetail.title}
+          </h1>
+        </div>
       </div>
     </div>
   )
