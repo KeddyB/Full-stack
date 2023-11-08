@@ -18,7 +18,7 @@ const UserProfile = () => {
   const userId = useParams()
 
   if(!user){
-    return <Spinner message={'loading profile'} />
+    return <Spinner message={'Loading User profile.....'} />
   }
   return (
     <div>
