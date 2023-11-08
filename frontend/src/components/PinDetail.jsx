@@ -43,7 +43,14 @@ const PinDetail = ({ user }) => {
       client
         .patch(pinId)
         .setIfMissing({ comments: [] })
-        .insert('after', 'comments[-1]', [{ comment, _key: uuidv4(), postedBy: { _type: 'postedBy', _ref: user?._id } }])
+        .insert('after', 'comments[-1]', [{
+          comment,
+          _key: uuidv4(),
+          postedBy: {
+            _type: 'postedBy',
+            _ref: user?._id 
+          }
+        }])
         .commit()
         .then(() => {
           fetchPinDetails();
@@ -116,7 +123,7 @@ const PinDetail = ({ user }) => {
                 <img src={user?.image} className="w-10 h-10 rounded-full cursor-pointer" alt="user-profile" />
               </Link>
               <input
-                className=" flex-1 border-gray-100 outline-none border-2 p-2 rounded-full hover:border-gray-300 focus:border-gray-300"
+                className=" flex-1 border-gray-100 outline-none border-2 p-2 rounded-full hover:border-gray-300  focus:border-gray-200 duration-500 ease-in-out"
                 type="text"
                 placeholder="Add a comment"
                 value={comment}
@@ -127,7 +134,7 @@ const PinDetail = ({ user }) => {
                 className="bg-red-500 text-white rounded-full px-6 py-2 font-semibold text-base outline-none"
                 onClick={addComment}
               >
-                {addingComment ? 'Doing...' : 'Done'}
+                {addingComment ? 'Posting...' : 'Done'}
               </button>
             </div>
           </div>
