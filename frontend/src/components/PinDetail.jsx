@@ -116,7 +116,7 @@ const PinDetail = ({ user }) => {
                 <img src={user?.image} className="w-10 h-10 rounded-full cursor-pointer" alt="user-profile" />
               </Link>
               <input
-                className=" flex-1 border-gray-100 outline-none border-2 p-2 rounded-2xl focus:border-gray-300"
+                className=" flex-1 border-gray-100 outline-none border-2 p-2 rounded-full hover:border-gray-300 focus:border-gray-300"
                 type="text"
                 placeholder="Add a comment"
                 value={comment}
