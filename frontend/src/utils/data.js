@@ -1,7 +1,7 @@
 export const categories = [
   {
     name: 'memes',
-    image: 'https://i.pinimg.com/750x/eb/47/44/eb4744eaa3b3ccd89749fa3470e2b0de.jpg',
+    image: 'https://pin.it/1klYjbR',
   },
   {
     name: 'cars',
