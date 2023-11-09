@@ -27,6 +27,7 @@ const UserProfile = () => {
   useEffect(() => {
     if (text === 'Created') {
       const createdPinQuery = userCreatedPinsQuery(userId)
+
       client
         .fetch(createdPinQuery)
         .then((data) => {
@@ -34,6 +35,7 @@ const UserProfile = () => {
         })
     }else{
       const savedPinQuery = userSavedPinsQuery(userId)
+
       client
         .fetch(savedPinQuery)
         .then((data) => {
@@ -113,6 +115,16 @@ const UserProfile = () => {
             >
               Saved
             </button>
+            <div className="px-2">
+              {pins?.length ? (
+                <MasonryLayout pins={pins} />
+              ) :(
+                <div className="flex justify-center font-bold items-center w-full text-xl mt-2">
+                  No Pins Found...
+                </div>
+              )}
+              
+            </div>
           </div>
         </div>
       </div>
