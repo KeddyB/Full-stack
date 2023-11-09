@@ -25,6 +25,24 @@ const UserProfile = () => {
   const { userId } = useParams()
 
   useEffect(() => {
+    if (text === 'Created') {
+      const createdPinQuery = userCreatedPinsQuery(userId)
+      client
+        .fetch(createdPinQuery)
+        .then((data) => {
+          setPins(data)
+        })
+    }else{
+      const savedPinQuery = userSavedPinsQuery(userId)
+      client
+        .fetch(savedPinQuery)
+        .then((data) => {
+          setPins(data)
+        })
+    }
+  }, [text, userId])
+
+  useEffect(() => {
     const query = userQuery(userId)
 
     client
@@ -42,7 +60,7 @@ const UserProfile = () => {
   }
 
   if(!user){
-    return <Spinner message={'Loading User profile.....'} />
+    return <Spinner message={'Loading Profile.....'} />
   }
 
   return (
