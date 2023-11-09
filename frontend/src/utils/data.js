@@ -1,7 +1,7 @@
 export const categories = [
   {
     name: 'memes',
-    image: './utils/short.jpg',
+    image: 'https://source.unsplash.com/400x400/?photography',
   },
   {
     name: 'cars',
