@@ -24,6 +24,8 @@ const UserProfile = () => {
   const navigate = useNavigate()
   const { userId } = useParams()
 
+  const User = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
+
   useEffect(() => {
     if (text === 'Created') {
       const createdPinQuery = userCreatedPinsQuery(userId)
@@ -75,10 +77,10 @@ const UserProfile = () => {
               alt="banner-pic"
               className='w-full h-370 2xl:h-510 shadow-lg object-cover' 
             />
-            <img src={user?.image} alt="user-pic" className='rounded-full w-20 h-20 border border-white-10 -mt-10 shadow-xl object-cover' />
-            <h1 className="font-bold text-3xl text-center mt-3">{user?.userName}</h1>
+            <img src={user.image} alt="user-pic" className='rounded-full w-20 h-20 border border-white-10 -mt-10 shadow-xl object-cover' />
+            <h1 className="font-bold text-3xl text-center mt-3">{user.userName}</h1>
             <div className="absolute top-0 z-1 right-0 -2">
-              {userId === user?._id && (
+              {userId === User.googleId && (
                 <GoogleLogout
                 clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}
                 render={(renderProps)=>(
