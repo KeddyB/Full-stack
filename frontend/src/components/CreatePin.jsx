@@ -151,8 +151,8 @@ const CreatePin = ({ user }) => {
               <option value="other" className='bg-white'>Select category</option>
               
               {categories.map((category) => (
-                <option className='text-base border-0 outline-none capitalize bg-white text-black' value={category.name}>
-                  {category.name}
+                <option className='text-base border-0 outline-none capitalize bg-white text-black' value={category?.name}>
+                  {category?.name}
                 </option>
               ))}
             </select>
