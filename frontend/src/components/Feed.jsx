@@ -31,6 +31,7 @@ const Feed = () => {
     }
   }, [categoryId])
 
+  if(!pins?.length) return <h2 className='flex justify-center items-center text-xl font-bold italic'>No Pin available in this section...</h2> 
   if(loading) return <Spinner message="We are adding new ideas to your feed!" />
   return (
     <div>
