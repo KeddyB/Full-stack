@@ -54,10 +54,10 @@ const CreatePin = ({ user }) => {
             _ref: imageAsset?._id
           }
         },
-        userId: user._id,
+        userId: user?._id,
         postedBy:{
           _type: 'postedBy',
-          _ref: user._id
+          _ref: user?._id
         },
         category,
       }
@@ -122,10 +122,10 @@ const CreatePin = ({ user }) => {
           />
           {user && (
             <div className="flex gap-2 my-2 items-center bg-white rounded-lg">
-              <img src={user.image} alt="userprofile"
+              <img src={user?.image} alt="userprofile"
                 className='w-10 h-10 rounded-full'
               />
-              <p className='font-bold'>{user.userName}</p>
+              <p className='font-bold'>{user?.userName}</p>
             </div>
           )}
           <input 

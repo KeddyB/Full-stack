@@ -64,7 +64,7 @@ const PinDetail = ({ user }) => {
 
   if (!pinDetail) {
     return (
-      <Spinner message="Showing pin" />
+      <Spinner message="Showing Pin Detail" />
     );
   }
 
